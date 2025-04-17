@@ -23,15 +23,13 @@ const blobSvg = [
 
 const blobColor = [
     "#21103c",
-    "#6b26b7",
-    "#360c8d",
     "#2a163f"
 ]
 
 mainsElem.forEach(function (elem) {
     const shapes = []
 
-    const strokeSvg = "20rem"
+    const strokeSvg = "21rem"
     
     const randomCount = createRandomeNumber(1);
     for (let i = 0; i < randomCount; i++) {
@@ -74,8 +72,8 @@ mainsElem.forEach(function (elem) {
     }
 
     const shpaesString = shapes.join("")
-
-    elem.lastElementChild.innerHTML += shpaesString
+    
+    elem.querySelector(".shape__wrapper").innerHTML += shpaesString
 
 
 

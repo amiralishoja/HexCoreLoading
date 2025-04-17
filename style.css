@@ -216,6 +216,10 @@ body {
     box-shadow: 0 0 8rem rgba(0, 183, 255, 1), 0 0 16rem rgba(0, 183, 255, 0.8), 0 0 24rem rgba(0, 183, 255, 0.6);
     animation: glow 2s infinite,  rotate-reverce 1s infinite linear alternate;
 }
+/* 
+body *:not(.glowing-sphere) {
+    border: 2px solid #626200;
+} */
 
 @keyframes glow {
     0%, 100% {
