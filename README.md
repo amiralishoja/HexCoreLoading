@@ -2,6 +2,7 @@
 # Hex Core Loading
 
 This is the hex core of arcane series
+Here is [Demo](https://amiralishoja.github.io/Hex-Core-Loading/)
 
 ![Demo](demo.gif)
 

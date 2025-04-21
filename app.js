@@ -21,20 +21,14 @@ const blobSvg = [
     "M28.2,-11.8C33.3,6.7,32.1,24.6,17.4,38.9C2.7,53.1,-25.6,63.6,-41.2,53.2C-56.7,42.7,-59.5,11.2,-50.6,-12.6C-41.6,-36.4,-20.8,-52.5,-4.6,-50.9C11.5,-49.4,23,-30.3,28.2,-11.8Z"
 ]
 
-const blobColor = [
-    "#21103c",
-    "#2a163f"
-]
-
 mainsElem.forEach(function (elem) {
     const shapes = []
 
     const strokeSvg = "21rem"
-    
+
     const randomCount = createRandomeNumber(1);
     for (let i = 0; i < randomCount; i++) {
         const randomShape = createRandomeNumber(3)
-        const randomColor = createRandomeNumber(2)
 
         const dAtributeValues = []
         let firstShapeEncode = ""
@@ -49,33 +43,24 @@ mainsElem.forEach(function (elem) {
         dAtributeValues.push(firstShapeEncode)
         const dAtributeString = dAtributeValues.join(";")
 
-        const stepAtributeValues = []
-        for (let i = 0; i < randomColor; i++) {
-            const percent = Math.floor(100 / randomColor)
-            const randomIndex = createRandomeNumber(blobColor.length - 1)
-            stepAtributeValues.push(`<stop offset="${i * percent}%" stop-color="${blobColor[randomIndex]}"/>`)
-        }
-        stepAtributeValues.push(`<stop offset="100%" stop-color="#3f396d"/>`)
-        const stepAtributeString = stepAtributeValues.join("")
-
         const shape = `<svg class="shape" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <linearGradient id="gradient-stroke" x1="0%" y1="0%" x2="100%" y2="0%">${stepAtributeString}</linearGradient>
-            </defs>
-            <path fill="transparent" transform="translate(100 100)" stroke="url(#gradient-stroke)" stroke-width="${strokeSvg}">
-                <animate xmlns="http://www.w3.org/2000/svg" attributeName="d" dur="${randomShape * 1000}ms"
-                    repeatCount="indefinite" values="${dAtributeString}" />
-            </path>
-        </svg>`;
+                                <defs>
+                                    <pattern id="image-stroke" patternUnits="userSpaceOnUse" width="200" height="200">
+                                        <image href="pictures/${i + 1}.jpg" x="0" y="0" width="200" height="200" preserveAspectRatio="xMidYMid slice" />
+                                        <animateTransform attributeName="patternTransform" type="rotate" values="0 100 100;360 100 100;0 100 100" keyTimes="0;0.5;1" dur="16s" calcMode="linear" repeatCount="indefinite" />
+                                    </pattern>
+                                </defs>
+                                <path fill="transparent" transform="translate(100 100)" stroke="url(#image-stroke)" stroke-width="${strokeSvg}">
+                                    <animate attributeName="d" dur="${randomShape * 1000}ms" repeatCount="indefinite" values="${dAtributeString}" />
+                                </path>
+                            </svg>`;
 
         shapes.push(shape)
     }
 
     const shpaesString = shapes.join("")
-    
+
     elem.querySelector(".shape__wrapper").innerHTML += shpaesString
-
-
 
 })
 
