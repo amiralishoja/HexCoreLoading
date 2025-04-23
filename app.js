@@ -43,11 +43,16 @@ mainsElem.forEach(function (elem) {
         dAtributeValues.push(firstShapeEncode)
         const dAtributeString = dAtributeValues.join(";")
 
+        let rotateValue = 360
+        if ((i + 1) % 2) {
+            rotateValue = -360
+        }
+
         const shape = `<svg class="shape" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                                 <defs>
                                     <pattern id="image-stroke" patternUnits="userSpaceOnUse" width="200" height="200">
                                         <image href="pictures/${i + 1}.jpg" x="0" y="0" width="200" height="200" preserveAspectRatio="xMidYMid slice" />
-                                        <animateTransform attributeName="patternTransform" type="rotate" values="0 100 100;360 100 100;0 100 100" keyTimes="0;0.5;1" dur="16s" calcMode="linear" repeatCount="indefinite" />
+                                        <animateTransform attributeName="patternTransform" type="rotate" values="0 100 100;${rotateValue} 100 100;0 100 100" begin="${i}s" keyTimes="0;0.5;1" dur="16s" calcMode="linear" repeatCount="indefinite" />
                                     </pattern>
                                 </defs>
                                 <path fill="transparent" transform="translate(100 100)" stroke="url(#image-stroke)" stroke-width="${strokeSvg}">
