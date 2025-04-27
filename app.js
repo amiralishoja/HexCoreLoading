@@ -24,7 +24,7 @@ const blobSvg = [
 mainsElem.forEach(function (elem) {
     const shapes = []
 
-    const strokeSvg = "21rem"
+    const strokeSvg = "20rem"
 
     const randomCount = createRandomeNumber(1);
     for (let i = 0; i < randomCount; i++) {
