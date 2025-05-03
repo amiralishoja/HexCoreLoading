@@ -20,37 +20,36 @@ const blobSvg = [
 
     "M28.2,-11.8C33.3,6.7,32.1,24.6,17.4,38.9C2.7,53.1,-25.6,63.6,-41.2,53.2C-56.7,42.7,-59.5,11.2,-50.6,-12.6C-41.6,-36.4,-20.8,-52.5,-4.6,-50.9C11.5,-49.4,23,-30.3,28.2,-11.8Z"
 ]
-
-mainsElem.forEach(function (elem) {
-    const elemCilds = `<div class="top__right"></div>
+const strokeSvg = "20rem"
+const elemCilds = `<div class="top__right"></div>
         <div class="bottom__left"></div>
         <div class="shape__wrapper"></div>`
 
+mainsElem.forEach(function (elem) {
     const shapes = []
-
-    const strokeSvg = "20rem"
-
     const randomCount = createRandomeNumber(1);
 
-    elem.innerHTML = elemCilds;
-
     for (let i = 0; i < randomCount; i++) {
-        const randomShape = createRandomeNumber(3)
-
         const dAtributeValues = []
+        const randomShape = createRandomeNumber(3)
         let firstShapeEncode = ""
+
         for (let i = 0; i < randomShape; i++) {
             const randomIndex = createRandomeNumber(blobSvg.length - 1)
             const randomeSvg = blobSvg[randomIndex]
+
             if (i === 0) {
                 firstShapeEncode = randomeSvg
             }
+
             dAtributeValues.push(randomeSvg)
         }
-        dAtributeValues.push(firstShapeEncode)
-        const dAtributeString = dAtributeValues.join(";")
 
+        dAtributeValues.push(firstShapeEncode)
+        
+        const dAtributeString = dAtributeValues.join(";")
         let rotateValue = 360
+        
         if ((i + 1) % 2) {
             rotateValue = -360
         }
@@ -72,8 +71,8 @@ mainsElem.forEach(function (elem) {
 
     const shpaesString = shapes.join("")
 
+    elem.innerHTML = elemCilds;
     elem.querySelector(".shape__wrapper").innerHTML += shpaesString
-
 })
 
 
