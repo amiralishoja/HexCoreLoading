@@ -22,11 +22,18 @@ const blobSvg = [
 ]
 
 mainsElem.forEach(function (elem) {
+    const elemCilds = `<div class="top__right"></div>
+        <div class="bottom__left"></div>
+        <div class="shape__wrapper"></div>`
+
     const shapes = []
 
     const strokeSvg = "20rem"
 
     const randomCount = createRandomeNumber(1);
+
+    elem.innerHTML = elemCilds;
+
     for (let i = 0; i < randomCount; i++) {
         const randomShape = createRandomeNumber(3)
 

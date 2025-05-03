@@ -260,3 +260,12 @@ body {
         opacity: 0.9;
     }
 }
+
+@keyframes height-changer {
+    from {
+        height: 7rem;
+    }
+    to {
+        height: 4rem;
+    }
+}
