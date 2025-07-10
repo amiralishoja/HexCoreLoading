@@ -1,9 +1,10 @@
-# 📀 Hex Core Loading
 ![Demo](demo.gif)
+
+# 📀 Hex Core Loading
 
 Hello and welcome to this repository, i made hex core from arcane series without using any library just with html css and a little js. if you like it don't forget give star.
 
-**check it out :** [Demo](https://amiralishoja.github.io/Hex-Core-Loading/)
+**check it out :** [Demo](https://amiralishoja.github.io/HexCoreLoading/)
 
 ## ⚙️ Technologies Covered
 
